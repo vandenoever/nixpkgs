@@ -410,6 +410,8 @@ let
 
   nukeReferences = callPackage ../build-support/nuke-references/default.nix { };
 
+  vmnetx = callPackage ../applications/virtualization/vmnetx/default.nix { };
+
   vmTools = import ../build-support/vm/default.nix {
     inherit pkgs;
   };
