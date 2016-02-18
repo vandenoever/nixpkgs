@@ -6198,6 +6198,26 @@ in modules // {
     propagatedBuildInputs = with self; [ logilab_common ];
   };
 
+  odoc = buildPythonPackage rec {
+    version = "0.5";
+    name = "odoc-${version}";
+    # lpod library currently does not support Python 3.x
+    # disabled = isPy3k;
+
+    propagatedBuildInputs = with self; [ lxml ];
+
+    src = pkgs.fetchurl {
+      url = "https://bitbucket.org/haftmann/odoc/get/v0.5.tar.bz2";
+      sha256 = "ef142abf5cdc675648ba1eee4b136db3c5177799582a8b45291e900354a49971";
+    };
+
+    meta = {
+      homepage = https://bitbucket.org/haftmann/odoc.git;
+      description = "Library that provides abstraction and manipulation devices for OASIS Open Document files, plus the unofficial cousins Open Document Base files and LibreOffice / OpenOffice extensions.";
+      license = licenses.gpl2;
+    };
+  };
+
   lpod = buildPythonPackage rec {
     version = "1.1.7";
     name = "python-lpod-${version}";
